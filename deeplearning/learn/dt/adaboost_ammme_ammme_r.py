@@ -28,11 +28,6 @@ x1_max=X[:,0].max()+1
 x2_min=X[:,1].min()-5
 x2_max=X[:,1].max()+1
 x1,x2=np.meshgrid(np.arange(x1_min,x1_max,0.02), np.arange(x2_min,x2_max,0.02))
-print(x1.shape)
-print(x2.shape)
-print(x1.ravel())
-print(x2.ravel())
 y=clf.predict(np.c_[x1.ravel(),x2.ravel()])
-print(y.shape)
-print(x1.shape)
-# y=y.reshape(x1.shape)
+y=y.reshape(x1.shape)
+print(y)
