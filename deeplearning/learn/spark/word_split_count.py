@@ -55,4 +55,7 @@ print("distinct:", rdd_4.distinct().collect())
 reduce()前面讲过，即最终只返回一个值，reduceByKey()和reduceByKeyLocally()均是将Key相同的元素合并。
 区别在于，reduce()和reduceByKeyLocally()函数均是将RDD转化为非RDD对象，而reduceByKey()将RDD对象转化为另一个RDD对象，需要collect()函数才能输出
 """
-
+rdd_5 = sc.parallelize([(1, 2), (1, 3), (3, 4), (3, 6)])
+rdd_6 = rdd_5.reduceByKey(lambda x, y: x+y)
+print("rdd_5", rdd_5.collect())
+print("reduceByKey",rdd_6.collect())
